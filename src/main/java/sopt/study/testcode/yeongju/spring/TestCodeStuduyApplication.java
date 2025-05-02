@@ -1,13 +1,13 @@
-package sopt.study.testcode;
+package sopt.study.testcode.yeongju.spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TestcodeApplication {
+public class TestCodeStuduyApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TestcodeApplication.class, args);
+		SpringApplication.run(TestCodeStuduyApplication.class, args);
 	}
 
 }
