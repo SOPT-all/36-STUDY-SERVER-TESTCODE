@@ -1,8 +1,8 @@
-package sample.cafekiosk.unit.order;
+package sopt.study.testcode.youngkyung.unit.order;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import sample.cafekiosk.unit.beverage.Beverage;
+import sopt.study.testcode.youngkyung.unit.beverage.Beverage;
 
 import java.time.LocalDateTime;
 import java.util.List;
