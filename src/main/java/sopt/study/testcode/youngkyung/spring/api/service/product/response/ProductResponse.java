@@ -1,10 +1,10 @@
-package sopt.study.testcode.spring.api.service.product.response;
+package sopt.study.testcode.youngkyung.spring.api.service.product.response;
 
 import lombok.Builder;
 import lombok.Getter;
-import sopt.study.testcode.spring.domain.product.Product;
-import sopt.study.testcode.spring.domain.product.ProductSellingStatus;
-import sopt.study.testcode.spring.domain.product.ProductType;
+import sopt.study.testcode.youngkyung.spring.domain.product.Product;
+import sopt.study.testcode.youngkyung.spring.domain.product.ProductSellingStatus;
+import sopt.study.testcode.youngkyung.spring.domain.product.ProductType;
 
 @Getter
 public class ProductResponse {

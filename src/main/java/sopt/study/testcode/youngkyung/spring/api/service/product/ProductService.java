@@ -1,11 +1,11 @@
-package sopt.study.testcode.spring.api.service.product;
+package sopt.study.testcode.youngkyung.spring.api.service.product;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import sopt.study.testcode.spring.api.service.product.response.ProductResponse;
-import sopt.study.testcode.spring.domain.product.Product;
-import sopt.study.testcode.spring.domain.product.ProductRepository;
-import sopt.study.testcode.spring.domain.product.ProductSellingStatus;
+import sopt.study.testcode.youngkyung.spring.api.service.product.response.ProductResponse;
+import sopt.study.testcode.youngkyung.spring.domain.product.Product;
+import sopt.study.testcode.youngkyung.spring.domain.product.ProductRepository;
+import sopt.study.testcode.youngkyung.spring.domain.product.ProductSellingStatus;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,4 +1,4 @@
-package sopt.study.testcode.spring.domain.product;
+package sopt.study.testcode.youngkyung.spring.domain.product;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package sopt.study.testcode.spring.domain;
+package sopt.study.testcode.youngkyung.spring.domain;
 
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;

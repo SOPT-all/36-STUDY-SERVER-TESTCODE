@@ -1,10 +1,10 @@
-package sopt.study.testcode.spring.api.controller.product;
+package sopt.study.testcode.youngkyung.spring.api.controller.product;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import sopt.study.testcode.spring.api.service.product.ProductService;
-import sopt.study.testcode.spring.api.service.product.response.ProductResponse;
+import sopt.study.testcode.youngkyung.spring.api.service.product.ProductService;
+import sopt.study.testcode.youngkyung.spring.api.service.product.response.ProductResponse;
 
 import java.util.List;
 
