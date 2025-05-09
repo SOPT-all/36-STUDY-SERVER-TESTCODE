@@ -1,21 +1,22 @@
-package sopt.study.testcode.unit;
+package sopt.study.testcode.minhyuk.unit;
 
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDateTime;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import sopt.study.testcode.unit.beverage.Americano;
-import sopt.study.testcode.unit.beverage.Latte;
-import sopt.study.testcode.unit.order.Order;
+import sopt.study.testcode.minhyuk.spring.unit.CafeKiosk;
+import sopt.study.testcode.minhyuk.spring.unit.beverage.Americano;
+import sopt.study.testcode.minhyuk.spring.unit.beverage.Latte;
+import sopt.study.testcode.minhyuk.spring.unit.order.Order;
 
 class CafeKioskTest {
 
 	@Test
-	void add_manual_test() {
+	void 음료_추가_테스트() {
 		CafeKiosk cafeKiosk = new CafeKiosk();
 		cafeKiosk.add(new Americano());
 
@@ -23,7 +24,7 @@ class CafeKioskTest {
 		System.out.println(">>> 담긴 음료 : " +  cafeKiosk.getBeverages().get(0).getName());
 
 	}
-
+	@DisplayName("음료 1개를 추가하면 주문 목록에 담긴다.")
 	@Test
 	void add(){
 		CafeKiosk cafeKiosk = new CafeKiosk();
@@ -87,17 +88,34 @@ class CafeKioskTest {
 		assertThat(cafeKiosk.getBeverages()).isEmpty();
 
 	}
-
+	@DisplayName("주문 목록에 담긴 상품들의 총 금액을 계산할 수 있다.")
 	@Test
-	void createOrder(){
+	void calculateTotalPrice(){
+		//Given
 		CafeKiosk cafeKiosk = new CafeKiosk();
 		Americano americano = new Americano();
-		cafeKiosk.add(americano);
+		Latte latte = new Latte();
 
-		Order order = cafeKiosk.createOrder();
-		assertThat(order.getBeverages()).hasSize(1);
-		assertThat(order.getBeverages().get(0).getName()).isEqualTo("아메리카노");
+
+		cafeKiosk.add(americano);
+		cafeKiosk.add(latte);
+
+		//when -> 보통 수행을 하는 단계
+		int totalPrice = cafeKiosk.calculateTotalPrice();
+		//then
+		assertThat(totalPrice).isEqualTo(8500);
 	}
+
+	// @Test
+	// void createOrder(){
+	// 	CafeKiosk cafeKiosk = new CafeKiosk();
+	// 	Americano americano = new Americano();
+	// 	cafeKiosk.add(americano);
+	//
+	// 	Order order = cafeKiosk.createOrder();
+	// 	assertThat(order.getBeverages()).hasSize(1);
+	// 	assertThat(order.getBeverages().get(0).getName()).isEqualTo("아메리카노");
+	// }
 
 	@Test
 	void createOrderWithCurrentTIme(){

@@ -1,4 +1,4 @@
-package sopt.study.testcode.unit;
+package sopt.study.testcode.minhyuk.spring.unit;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Getter;
-import sopt.study.testcode.unit.beverage.Beverage;
-import sopt.study.testcode.unit.order.Order;
+import sopt.study.testcode.minhyuk.spring.unit.beverage.Beverage;
+import sopt.study.testcode.minhyuk.spring.unit.order.Order;
 
 @Getter
 public class CafeKiosk {
@@ -33,6 +33,10 @@ public class CafeKiosk {
 		}
 	}
 
+	// public int calculateTotalPrice(){
+	// 	return 0;
+	// }
+
 	public void remove(Beverage beverage){
 		beverages.remove(beverage);
 	}
@@ -42,11 +46,9 @@ public class CafeKiosk {
 	}
 
 	public int calculateTotalPrice() {
-		int totalPrice= 0;
-		for(Beverage beverage : beverages){
-			totalPrice += beverage.getPrice();
-		}
-		return totalPrice;
+		return beverages.stream()
+			.mapToInt(Beverage::getPrice)
+			.sum();
 	}
 
 	public Order createOrder(){

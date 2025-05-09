@@ -1,9 +1,11 @@
-package sopt.study.testcode.unit.beverage;
+package sopt.study.testcode.minhyuk.unit.beverage;
 
 import static org.assertj.core.api.AssertionsForClassTypes.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import sopt.study.testcode.minhyuk.spring.unit.beverage.Americano;
 
 class AmericanoTest {
 

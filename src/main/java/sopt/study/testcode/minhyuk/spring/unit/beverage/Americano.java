@@ -1,4 +1,4 @@
-package sopt.study.testcode.unit.beverage;
+package sopt.study.testcode.minhyuk.spring.unit.beverage;
 
 public class Americano implements Beverage {
 	@Override

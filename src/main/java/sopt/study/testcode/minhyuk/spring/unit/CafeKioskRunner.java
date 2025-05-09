@@ -1,10 +1,10 @@
-package sopt.study.testcode.unit;
+package sopt.study.testcode.minhyuk.spring.unit;
 
 import java.time.LocalDateTime;
 
-import sopt.study.testcode.unit.beverage.Americano;
-import sopt.study.testcode.unit.beverage.Latte;
-import sopt.study.testcode.unit.order.Order;
+import sopt.study.testcode.minhyuk.spring.unit.beverage.Americano;
+import sopt.study.testcode.minhyuk.spring.unit.beverage.Latte;
+import sopt.study.testcode.minhyuk.spring.unit.order.Order;
 
 public class CafeKioskRunner {
 	public static void main(String[] args){
