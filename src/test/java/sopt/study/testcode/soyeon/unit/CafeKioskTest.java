@@ -5,10 +5,9 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
-import sopt.study.testcode.unit.CafeKiosk;
-import sopt.study.testcode.unit.beverage.Americano;
-import sopt.study.testcode.unit.beverage.Latte;
-import sopt.study.testcode.unit.order.Order;
+import sopt.study.testcode.soyeon.unit.beverage.Americano;
+import sopt.study.testcode.soyeon.unit.beverage.Latte;
+import sopt.study.testcode.soyeon.unit.order.Order;
 
 class CafeKioskTest {
 

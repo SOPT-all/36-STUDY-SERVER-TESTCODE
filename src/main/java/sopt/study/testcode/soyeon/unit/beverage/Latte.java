@@ -1,4 +1,4 @@
-package sopt.study.testcode.unit.beverage;
+package sopt.study.testcode.soyeon.unit.beverage;
 
 public class Latte implements Beverage {
     @Override

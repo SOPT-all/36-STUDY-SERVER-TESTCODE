@@ -3,7 +3,6 @@ package sopt.study.testcode.soyeon.unit.beverage;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
-import sopt.study.testcode.unit.beverage.Americano;
 
 class AmericanoTest {
 

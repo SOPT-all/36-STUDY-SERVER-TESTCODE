@@ -1,12 +1,12 @@
-package sopt.study.testcode.unit;
+package sopt.study.testcode.soyeon.unit;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
-import sopt.study.testcode.unit.beverage.Beverage;
-import sopt.study.testcode.unit.order.Order;
+import sopt.study.testcode.soyeon.unit.beverage.Beverage;
+import sopt.study.testcode.soyeon.unit.order.Order;
 
 @Getter
 public class CafeKiosk {
