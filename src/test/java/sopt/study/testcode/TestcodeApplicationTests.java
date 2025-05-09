@@ -1,10 +1,10 @@
-package sopt.study.testcode.soyeon;
+package sopt.study.testcode;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CafeKioskApplicationTests {
+class TestcodeApplicationTests {
 
 	@Test
 	void contextLoads() {
