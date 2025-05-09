@@ -1,4 +1,4 @@
-package sopt.study.testcode;
+package sopt.study.testcode.soyeon;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
