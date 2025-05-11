@@ -5,12 +5,14 @@ import static org.assertj.core.api.Assertions.*;
 import java.time.LocalDateTime;
 
 import org.hibernate.boot.model.naming.IllegalIdentifierException;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import sopt.study.testcode.geunpyo.unit.order.Order;
 
 class CafeKioskTest {
 
+	@DisplayName("음료를 하나 추가하면 주문목록에 담긴다.")
 	@Test
 	void add() {
 		CafeKiosk cafeKiosk = new CafeKiosk();
@@ -63,6 +65,21 @@ class CafeKioskTest {
 
 		cafeKiosk.clear();
 		assertThat(cafeKiosk.getBeverages()).isEmpty();
+	}
+
+	@Test
+	void calculateTotalPrice() {
+		CafeKiosk cafeKiosk = new CafeKiosk();
+		Americano americano = new Americano();
+		Latte latte = new Latte();
+
+		cafeKiosk.add(americano);
+		cafeKiosk.add(latte);
+
+		int totalPrice = cafeKiosk.calculateTotalPrice();
+
+		assertThat(totalPrice).isEqualTo(8500);
+
 	}
 
 	@Test

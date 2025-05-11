@@ -35,16 +35,17 @@ public class CafeKiosk {
 		beverages.remove(beverage);
 	}
 
+
+	public void clear() {
+		beverages.clear();
+	}
+
 	public int calculateTotalPrice() {
 		int totalPrice = 0;
 		for (Beverage beverage : beverages) {
 			totalPrice += beverage.getPrice();
 		}
 		return totalPrice;
-	}
-
-	public void clear() {
-		beverages.clear();
 	}
 
 	public Order createOrder(LocalDateTime currentDateTime) {
@@ -57,5 +58,4 @@ public class CafeKiosk {
 
 		return new Order(LocalDateTime.now(), beverages);
 	}
-
 }
