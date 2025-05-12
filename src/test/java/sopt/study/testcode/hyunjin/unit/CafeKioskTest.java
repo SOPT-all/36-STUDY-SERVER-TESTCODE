@@ -89,8 +89,9 @@ class CafeKioskTest {
     }
 
     @Test
-    @DisplayName("음료 총합 가격 계산 - 계산 성공")
+    @DisplayName("음료 총합 가격 계산 - 주문 목록에 담긴 음료의 총 금액 계산 성공")
     void calculateTotalPrice() {
+        // given
         CafeKiosk cafeKiosk = new CafeKiosk();
         Americano americano = new Americano();
         Latte latte = new Latte();
@@ -98,8 +99,10 @@ class CafeKioskTest {
         cafeKiosk.add(americano);
         cafeKiosk.add(latte);
 
+        // when
         int totalPrice = cafeKiosk.calculateTotalPrice();
 
+        // then
         assertThat(totalPrice).isEqualTo(8500);
     }
 
