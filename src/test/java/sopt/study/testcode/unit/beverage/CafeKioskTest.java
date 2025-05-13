@@ -1,5 +1,6 @@
-package sopt.study.testcode;
+package sopt.study.testcode.unit.beverage;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import sopt.study.testcode.hyeeum.cafekiosk.unit.CafeKiosk;
 import sopt.study.testcode.hyeeum.cafekiosk.unit.beverage.Americano;
@@ -13,7 +14,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 
 class CafeKioskTest {
-    @Test //수동테스트
+    @Test
+        //수동테스트
     void add_manual_test() {
         CafeKiosk cafeKiosk = new CafeKiosk();
         cafeKiosk.add(new Americano());
@@ -21,6 +23,8 @@ class CafeKioskTest {
         System.out.println(">>> 담긴 음료 : " + cafeKiosk.getBeverages().get(0).getName());
     }
 
+    //    @DisplayName("음료 1개 추가 테스트")
+    @DisplayName("음료 1개를 추가하면 주문 목록에 담긴다")
     @Test
     void add() {
         CafeKiosk cafeKiosk = new CafeKiosk();
@@ -80,6 +84,24 @@ class CafeKioskTest {
 
         cafeKiosk.clear();
         assertThat(cafeKiosk.getBeverages()).isEmpty();
+    }
+
+    @DisplayName("주문 목록에 담긴 상품들의 총 금액을 꼐산할 수 있다.")
+    @Test
+    void calculateTotalPrice() {
+        // given
+        CafeKiosk cafeKiosk = new CafeKiosk();
+        Americano americano = new Americano();
+        Latte latte = new Latte();
+
+        cafeKiosk.add(americano);
+        cafeKiosk.add(latte);
+
+        // when (보통 한 줄 정도라고 함)
+        int totalPrice = cafeKiosk.calculateTotalPrice();
+
+        //then
+        assertThat(totalPrice).isEqualTo(8500);
     }
 
     @Test

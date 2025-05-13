@@ -1,4 +1,4 @@
-package sopt.study.testcode.beverage;
+package sopt.study.testcode.unit.beverage;
 
 import org.junit.jupiter.api.Test;
 import sopt.study.testcode.hyeeum.cafekiosk.unit.beverage.Americano;

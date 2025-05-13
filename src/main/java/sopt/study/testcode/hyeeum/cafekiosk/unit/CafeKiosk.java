@@ -40,6 +40,10 @@ public class CafeKiosk {
     }
 
     public int calculateTotalPrice() {
+//        return 0; // 실패 코드 -> RED
+//        return 8500; // 최소한의 코드 -> GREEN
+
+// REFACTOR
         int totalPrice = 0;
         for (Beverage beverage : beverages) {
             totalPrice += beverage.getPrice();
