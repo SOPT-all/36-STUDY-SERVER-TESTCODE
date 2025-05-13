@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.time.LocalDateTime;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import sopt.study.testcode.kyongmin.unit.CafeKiosk;
@@ -15,22 +16,29 @@ import sopt.study.testcode.kyongmin.unit.order.Order;
 class CafeKioskTest {
 
 	@Test
+	@DisplayName("음료 1개를 추가하면 주문 목록에 담긴다.")
 	void add() {
+		// given
 		CafeKiosk cafeKiosk = new CafeKiosk();
 
+		// when
 		cafeKiosk.add(new Americano());
 
+		// then
 		assertThat(cafeKiosk.getBeverages().size()).isEqualTo(1);
 		assertThat(cafeKiosk.getBeverages().get(0).getName()).isEqualTo("아메리카노");
 	}
 
 	@Test
 	void addSevaralBeverages() {
+		// given
 		CafeKiosk cafeKiosk = new CafeKiosk();
 		Americano americano = new Americano();
 
+		// when
 		cafeKiosk.add(americano, 3);
 
+		// then
 		// 동일한 인스턴스가 추가되는지 확인
 		assertThat(cafeKiosk.getBeverages().get(0)).isEqualTo(americano);
 		assertThat(cafeKiosk.getBeverages().get(1)).isEqualTo(americano);
@@ -41,6 +49,7 @@ class CafeKioskTest {
 
 	@Test
 	void addZeroBeverage() {
+		// given
 		CafeKiosk cafeKiosk = new CafeKiosk();
 		Americano americano = new Americano();
 
@@ -80,6 +89,18 @@ class CafeKioskTest {
 	}
 
 	@Test
+	void calculateTotalPrice(){
+		CafeKiosk cafeKiosk = new CafeKiosk();
+		Americano americano = new Americano();
+		Latte latte = new Latte();
+
+		cafeKiosk.add(americano);
+		cafeKiosk.add(latte);
+
+		assertThat(cafeKiosk.calculatePrice()).isEqualTo(8500);
+	}
+
+	@Test
 	void createOrder() {
 		CafeKiosk cafeKiosk = new CafeKiosk();
 		Americano americano = new Americano();
@@ -98,6 +119,7 @@ class CafeKioskTest {
 	}
 
 	@Test
+	@DisplayName("영업 시작 시간 이전에는 주문을 생성할 수 없다.")
 	void createOrderWithClosedTime() {
 		CafeKiosk cafeKiosk = new CafeKiosk();
 		Americano americano = new Americano();
