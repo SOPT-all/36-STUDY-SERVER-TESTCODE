@@ -1,4 +1,4 @@
-create table product
+create table IF NOT EXISTS product
 (
     product_number VARCHAR not null,
     type           VARCHAR not null,
