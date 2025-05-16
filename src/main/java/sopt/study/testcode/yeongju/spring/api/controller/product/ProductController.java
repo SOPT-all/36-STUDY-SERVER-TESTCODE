@@ -1,4 +1,4 @@
-package sopt.study.testcode.yeongju.spring.api.controller;
+package sopt.study.testcode.yeongju.spring.api.controller.product;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
