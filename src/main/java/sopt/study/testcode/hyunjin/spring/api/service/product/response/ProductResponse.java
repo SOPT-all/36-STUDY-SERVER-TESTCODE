@@ -15,7 +15,7 @@ public record ProductResponse(
         LocalDateTime createTime,
         LocalDateTime modifiedTime
 ) {
-    private static ProductResponse from(Product product) {
+    public static ProductResponse of(Product product) {
         return new ProductResponse(
                 product.getId(),
                 product.getProductNumber(),
@@ -30,7 +30,7 @@ public record ProductResponse(
 
     public static List<ProductResponse> from(List<Product> products) {
         return products.stream()
-                .map(ProductResponse::from)
+                .map(ProductResponse::of)
                 .toList();
     }
 }
