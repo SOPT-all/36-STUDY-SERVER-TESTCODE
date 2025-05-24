@@ -1,5 +1,6 @@
 package sopt.study.testcode.hyunjin.spring.api.service.order;
 
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import sopt.study.testcode.hyunjin.spring.api.controller.order.OrderCreateRequest;
 import sopt.study.testcode.hyunjin.spring.api.service.order.response.OrderResponse;
+import sopt.study.testcode.hyunjin.spring.domain.order.OrderRepository;
 import sopt.study.testcode.hyunjin.spring.domain.product.Product;
 import sopt.study.testcode.hyunjin.spring.domain.product.ProductRepository;
 import sopt.study.testcode.hyunjin.spring.domain.product.ProductSellingStatus;
@@ -20,10 +22,14 @@ import static org.assertj.core.api.AssertionsForClassTypes.tuple;
 
 
 @SpringBootTest
+@Transactional
 class OrderServiceTest {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private OrderRepository orderRepository;
 
     @Autowired
     private ProductRepository productRepository;
@@ -31,6 +37,7 @@ class OrderServiceTest {
     @BeforeEach
     void cleanUp() {
         productRepository.deleteAll();
+        orderRepository.deleteAll();
     }
 
     @Test
