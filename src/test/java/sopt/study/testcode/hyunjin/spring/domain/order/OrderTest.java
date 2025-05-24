@@ -3,6 +3,7 @@ package sopt.study.testcode.hyunjin.spring.domain.order;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 import sopt.study.testcode.hyunjin.spring.domain.product.Product;
 import sopt.study.testcode.hyunjin.spring.domain.product.ProductSellingStatus;
 import sopt.study.testcode.hyunjin.spring.domain.product.ProductType;
@@ -13,6 +14,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
+@Transactional
 class OrderTest {
 
     @Test
