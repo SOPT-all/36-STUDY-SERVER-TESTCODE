@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import sopt.study.testcode.hyunjin.unit.beverage.Americano;
 import sopt.study.testcode.hyunjin.unit.beverage.Latte;
-import sopt.study.testcode.hyunjin.unit.common.ResponseError;
+import sopt.study.testcode.hyunjin.spring.common.ResponseError;
 import sopt.study.testcode.hyunjin.unit.order.Order;
 
 import java.time.LocalDateTime;

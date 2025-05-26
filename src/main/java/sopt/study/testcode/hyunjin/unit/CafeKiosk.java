@@ -1,7 +1,7 @@
 package sopt.study.testcode.hyunjin.unit;
 
 import lombok.Getter;
-import sopt.study.testcode.hyunjin.unit.common.ResponseError;
+import sopt.study.testcode.hyunjin.spring.common.ResponseError;
 import sopt.study.testcode.hyunjin.unit.order.Order;
 
 import java.time.LocalDateTime;
