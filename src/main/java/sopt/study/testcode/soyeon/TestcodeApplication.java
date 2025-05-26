@@ -1,4 +1,4 @@
-package sopt.study.testcode;
+package sopt.study.testcode.soyeon;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
