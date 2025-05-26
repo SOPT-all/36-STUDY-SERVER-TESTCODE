@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 public class OrderCreateRequest {
 
-  private List<String> productNumbers;
+  private final List<String> productNumbers;
 
   @Builder
   private OrderCreateRequest(final List<String> productNumbers) {
