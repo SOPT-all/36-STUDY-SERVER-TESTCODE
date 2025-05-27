@@ -9,6 +9,8 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
     // select * from product where selling_type in ('SELLING','HOLD);  -> 와 동일함
-    List<Product> findAllBySellingStatusIn(List<ProductSellingStatus> sellingStatuss);
+    List<Product> findAllBySellingStatusIn(List<ProductSellingStatus> sellingStatus);
+
+    List<Product> findAllByProductNumberIn(List<String> productNumber);
 
 }

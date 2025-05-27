@@ -25,6 +25,7 @@ public class Product extends BaseEntity {
     private ProductSellingStatus sellingStatus;
 
     private String name;
+
     private int price;
 
     @Builder
