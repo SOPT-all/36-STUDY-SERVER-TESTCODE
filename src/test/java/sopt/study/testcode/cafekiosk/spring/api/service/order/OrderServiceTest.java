@@ -69,7 +69,7 @@ class OrderServiceTest {
         // then
         assertThat(orderResponse.getId()).isNotNull();
         assertThat(orderResponse)
-                .extracting("registeredDateTime", "totalPrice")
+                .extracting("registerDateTime", "totalPrice")
                 .contains(registerDateTime, 4000);
         assertThat(orderResponse.getProducts()).hasSize(2)
                 .extracting("productNumber", "price")
@@ -100,7 +100,7 @@ class OrderServiceTest {
         // then
         assertThat(orderResponse.getId()).isNotNull();
         assertThat(orderResponse)
-                .extracting("registeredDateTime", "totalPrice")
+                .extracting("registerDateTime", "totalPrice")
                 .contains(registerDateTime, 2000);
         assertThat(orderResponse.getProducts()).hasSize(2)
                 .extracting("productNumber", "price")
