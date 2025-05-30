@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import sopt.study.testcode.soyeon.api.controller.order.request.OrderCreateRequest;
+import sopt.study.testcode.soyeon.api.service.order.request.OrderCreateServiceRequest;
 import sopt.study.testcode.soyeon.api.service.order.response.OrderResponse;
 import sopt.study.testcode.soyeon.domain.order.Order;
 import sopt.study.testcode.soyeon.domain.order.OrderRepository;
@@ -25,7 +26,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final StockRepository stockRepository;
 
-    public OrderResponse createOrder(OrderCreateRequest request, LocalDateTime registeredDateTime) {
+    public OrderResponse createOrder(OrderCreateServiceRequest request, LocalDateTime registeredDateTime) {
         List<String> productNumbers = request.getProductNumbers();
         List<Product> products = findProductsBy(productNumbers);
 
