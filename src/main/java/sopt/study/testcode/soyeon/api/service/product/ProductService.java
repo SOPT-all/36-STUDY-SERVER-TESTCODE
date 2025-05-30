@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sopt.study.testcode.soyeon.api.controller.product.request.ProductCreateRequest;
+import sopt.study.testcode.soyeon.api.service.product.request.ProductCreateServiceRequest;
 import sopt.study.testcode.soyeon.api.service.product.response.ProductResponse;
 import sopt.study.testcode.soyeon.domain.product.Product;
 import sopt.study.testcode.soyeon.domain.product.ProductRepository;
@@ -19,7 +20,7 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     @Transactional
-    public ProductResponse createProduct(ProductCreateRequest request) {
+    public ProductResponse createProduct(ProductCreateServiceRequest request) {
         String nextProductNumber = createNextProductNumber();
 
         Product product = request.toEntity(nextProductNumber);
