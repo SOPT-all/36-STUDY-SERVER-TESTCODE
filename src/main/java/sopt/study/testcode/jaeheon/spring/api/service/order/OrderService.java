@@ -4,8 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import sopt.study.testcode.jaeheon.spring.api.controller.order.request.OrderCreateRequest;
 import sopt.study.testcode.jaeheon.spring.api.controller.order.response.OrderResponse;
+import sopt.study.testcode.jaeheon.spring.api.service.order.reqeust.OrderCreateServiceRequest;
 import sopt.study.testcode.jaeheon.spring.domain.order.Order;
 import sopt.study.testcode.jaeheon.spring.domain.order.OrderRepository;
 import sopt.study.testcode.jaeheon.spring.domain.product.Product;
@@ -33,7 +33,7 @@ public class OrderService {
      * optimistic lock (낙관적, 충돌 별로 없는 경우에) / pessimistic lock (비관적, 충돌이 많은 경우에)
      */
     @Transactional
-    public OrderResponse createOrder(OrderCreateRequest request, LocalDateTime registerDateTime){
+    public OrderResponse createOrder(OrderCreateServiceRequest request, LocalDateTime registerDateTime){
         List<String> productNumbers = request.getProductNumbers();
         List<Product> products = findProductsBy(productNumbers);
 
