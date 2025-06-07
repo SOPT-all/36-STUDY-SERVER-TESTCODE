@@ -1,0 +1,48 @@
+package sopt.study.testcode.minhyuk.spring.api.domain.stock;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import sopt.study.testcode.minhyuk.spring.api.domain.BaseEntity;
+
+@Getter
+@Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class Stock extends BaseEntity {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	private String productNumber;
+
+	private int quantity;
+
+	@Builder
+	private Stock(int quantity, String productNumber) {
+		this.quantity = quantity;
+		this.productNumber = productNumber;
+	}
+
+	public static Stock create(String productNumber, int quantity){
+		return Stock.builder()
+			.productNumber(productNumber)
+			.quantity(quantity)
+			.build();
+	}
+
+	public boolean isQuantityLessThan(int quantity){
+		return this.quantity < quantity;
+	}
+	public void deductQuantity(int quantity){
+		if(isQuantityLessThan(quantity)){
+			throw new IllegalArgumentException("차감할 재고가 없습니다.");
+		}
+		this.quantity -= quantity;
+	}
+}
