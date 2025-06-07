@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
-import sopt.study.testcode.hyunjin.spring.api.controller.order.OrderCreateRequest;
+import sopt.study.testcode.hyunjin.spring.api.controller.order.dto.request.OrderCreateRequest;
 import sopt.study.testcode.hyunjin.spring.api.service.order.response.OrderResponse;
 import sopt.study.testcode.hyunjin.spring.common.ResponseError;
 import sopt.study.testcode.hyunjin.spring.domain.OrderProduct.OrderProductRepository;
@@ -62,7 +62,7 @@ class OrderServiceTest {
                 .build();
 
         // when
-        OrderResponse orderResponse = orderService.createOrder(request, registeredDateTime);
+        OrderResponse orderResponse = orderService.createOrder(request.toServiceRequest(), registeredDateTime);
 
         // then
         assertThat(orderResponse.id()).isNotNull();
@@ -93,7 +93,7 @@ class OrderServiceTest {
                 .build();
 
         // when
-        OrderResponse orderResponse = orderService.createOrder(request, registeredDateTime);
+        OrderResponse orderResponse = orderService.createOrder(request.toServiceRequest(), registeredDateTime);
 
         // then
         assertThat(orderResponse.id()).isNotNull();
@@ -128,7 +128,7 @@ class OrderServiceTest {
                 .build();
 
         // when
-        OrderResponse orderResponse = orderService.createOrder(request, registeredDateTime);
+        OrderResponse orderResponse = orderService.createOrder(request.toServiceRequest(), registeredDateTime);
 
         // then
         assertThat(orderResponse.id()).isNotNull();
@@ -174,7 +174,7 @@ class OrderServiceTest {
                 .build();
 
         // when // then
-        assertThatThrownBy(() -> orderService.createOrder(request, registeredDateTime))
+        assertThatThrownBy(() -> orderService.createOrder(request.toServiceRequest(), registeredDateTime))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ResponseError.OUT_OF_QUANTITY.getMessage());
     }

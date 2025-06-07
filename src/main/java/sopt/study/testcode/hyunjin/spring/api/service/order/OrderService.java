@@ -3,7 +3,7 @@ package sopt.study.testcode.hyunjin.spring.api.service.order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sopt.study.testcode.hyunjin.spring.api.controller.order.OrderCreateRequest;
+import sopt.study.testcode.hyunjin.spring.api.service.order.request.OrderCreateServiceRequest;
 import sopt.study.testcode.hyunjin.spring.api.service.order.response.OrderResponse;
 import sopt.study.testcode.hyunjin.spring.common.ResponseError;
 import sopt.study.testcode.hyunjin.spring.domain.order.Order;
@@ -29,8 +29,8 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final StockRepository stockRepository;
 
-    public OrderResponse createOrder(OrderCreateRequest request, LocalDateTime registeredDateTime) {
-        List<String> productNumbers = request.getProductNumbers();
+    public OrderResponse createOrder(OrderCreateServiceRequest request, LocalDateTime registeredDateTime) {
+        List<String> productNumbers = request.productNumbers();
         List<Product> products = findProductsBy(productNumbers);
 
         deductStockQuantities(products);
