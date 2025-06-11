@@ -2,6 +2,7 @@ package sopt.study.testcode.jaeheon.spring.domain.order;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.aspectj.weaver.ast.Or;
@@ -12,6 +13,7 @@ import sopt.study.testcode.jaeheon.spring.domain.product.Product;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -33,7 +35,11 @@ public class Order extends BaseEntity {
     private List<OrderProduct> orderProducts = new ArrayList<>();
 
     public static Order create(List<Product> products, LocalDateTime registeredDateTime){
-        return new Order(products, registeredDateTime);
+        return Order.builder()
+            .orderStatus(OrderStatus.INIT)
+            .products(products)
+            .registeredDateTime(registeredDateTime)
+            .build();
     }
 
     public Order(List<Product> products, LocalDateTime registeredDateTime){
@@ -43,6 +49,16 @@ public class Order extends BaseEntity {
         this.orderProducts = products.stream()
                 .map(product -> new OrderProduct(this, product))
                 .toList();
+    }
+
+    @Builder
+    private Order(List<Product> products, OrderStatus orderStatus, LocalDateTime registeredDateTime) {
+        this.orderStatus = orderStatus;
+        this.totalPrice = calculateTotalPrice(products);
+        this.registeredDateTime = registeredDateTime;
+        this.orderProducts = products.stream()
+            .map(product -> new OrderProduct(this, product))
+            .collect(Collectors.toList());
     }
 
     private int calculateTotalPrice(List<Product> products) {

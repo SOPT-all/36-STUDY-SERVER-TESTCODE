@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import sopt.study.testcode.jaeheon.spring.api.controller.order.request.OrderCreateRequest;
 import sopt.study.testcode.jaeheon.spring.api.controller.order.response.OrderResponse;
+import sopt.study.testcode.jaeheon.spring.api.service.order.reqeust.OrderCreateServiceRequest;
 import sopt.study.testcode.jaeheon.spring.domain.OrderProduct.OrderProductRepository;
 import sopt.study.testcode.jaeheon.spring.domain.order.OrderRepository;
 import sopt.study.testcode.jaeheon.spring.domain.product.Product;
@@ -74,7 +75,7 @@ class OrderServiceTest {
 
         stockRepository.saveAll(List.of(stock1, stock2));
 
-        OrderCreateRequest request = OrderCreateRequest.builder()
+        OrderCreateServiceRequest request = OrderCreateServiceRequest.builder()
             .productNumbers(List.of("001", "001", "002", "003"))
             .build();
 
@@ -121,7 +122,7 @@ class OrderServiceTest {
 
         stockRepository.saveAll(List.of(stock1, stock2));
 
-        OrderCreateRequest request = OrderCreateRequest.builder()
+        OrderCreateServiceRequest request = OrderCreateServiceRequest.builder()
             .productNumbers(List.of("001", "001", "002", "003"))
             .build();
 
@@ -146,7 +147,7 @@ class OrderServiceTest {
         productRepository.saveAll(List.of(product1, product2, product3));
 
 
-        OrderCreateRequest request = OrderCreateRequest.builder()
+        OrderCreateServiceRequest request = OrderCreateServiceRequest.builder()
                 .productNumbers(List.of("001", "002"))
                 .build();
         // when
@@ -177,7 +178,7 @@ class OrderServiceTest {
 
         productRepository.saveAll(List.of(product1, product2, product3));
 
-        OrderCreateRequest request = OrderCreateRequest.builder()
+        OrderCreateServiceRequest request = OrderCreateServiceRequest.builder()
                 .productNumbers(List.of("001", "001"))
                 .build();
 

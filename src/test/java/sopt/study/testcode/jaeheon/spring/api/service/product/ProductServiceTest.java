@@ -15,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import sopt.study.testcode.jaeheon.spring.api.controller.product.dto.request.ProductCreateRequest;
+import sopt.study.testcode.jaeheon.spring.api.service.product.request.ProductCreateServiceRequest;
 import sopt.study.testcode.jaeheon.spring.api.service.product.response.ProductResponse;
 import sopt.study.testcode.jaeheon.spring.domain.product.Product;
 import sopt.study.testcode.jaeheon.spring.domain.product.ProductRepository;
@@ -43,7 +44,7 @@ class ProductServiceTest {
 		Product product1 = createProduct("001", HANDMADE, SELLING, "아메리카노", 4000);
 		productRepository.save(product1);
 
-		ProductCreateRequest request = ProductCreateRequest.builder()
+		ProductCreateServiceRequest request = ProductCreateServiceRequest.builder()
 			.type(HANDMADE)
 			.sellingStatus(SELLING)
 			.name("카푸치노")
@@ -71,7 +72,7 @@ class ProductServiceTest {
 	@Test
 	void createProductWhenProductsIsEmpty(){
 		// given
-		ProductCreateRequest request = ProductCreateRequest.builder()
+		ProductCreateServiceRequest request = ProductCreateServiceRequest.builder()
 			.type(HANDMADE)
 			.sellingStatus(SELLING)
 			.name("카푸치노")
