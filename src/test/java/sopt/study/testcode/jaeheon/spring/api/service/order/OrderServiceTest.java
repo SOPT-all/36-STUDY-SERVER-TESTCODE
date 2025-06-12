@@ -49,6 +49,7 @@ class OrderServiceTest {
 
     /**
      * 외래 키가 존재한다면 삭제 순서를 고려할 것
+     * deleteAll을 사용하여 벌크쿼리가 대신 연관관계를 일일이 찾아서 하나씩 삭제해줄 수도 있음. 상황에 맞게 사용하기.
      */
     @AfterEach
     void clearInAfterTest(){
@@ -133,6 +134,31 @@ class OrderServiceTest {
             .hasMessage("재고가 부족한 상품이 있습니다.");
     }
 
+    @DisplayName("재고가 부족한 상품으로 주문을 생성하려는 경우 예외가 발생한다.")
+    @Test
+    void createOrderWithNoStock() {
+        // given
+        LocalDateTime registeredDateTime = LocalDateTime.now();
+
+        Product product1 = createProduct(BOTTLE, "001", 1000);
+        Product product2 = createProduct(BAKERY, "002", 3000);
+        Product product3 = createProduct(HANDMADE, "003", 5000);
+        productRepository.saveAll(List.of(product1, product2, product3));
+
+        Stock stock1 = Stock.create("001", 2);
+        Stock stock2 = Stock.create("002", 2);
+        stock1.deductQuantity(1); // todo
+        stockRepository.saveAll(List.of(stock1, stock2));
+
+        OrderCreateServiceRequest request = OrderCreateServiceRequest.builder()
+            .productNumbers(List.of("001", "001", "002", "003"))
+            .build();
+
+        // when // then
+        assertThatThrownBy(() -> orderService.createOrder(request, registeredDateTime))
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessage("재고가 부족한 상품이 있습니다.");
+    }
 
     @DisplayName("주문번호 리스트를 받아 주문을 생성한다.")
     @Test
