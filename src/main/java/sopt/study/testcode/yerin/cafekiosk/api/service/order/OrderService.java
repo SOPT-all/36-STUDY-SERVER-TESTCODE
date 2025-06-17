@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import sopt.study.testcode.yerin.cafekiosk.api.controller.order.request.OrderCreateRequest;
+import sopt.study.testcode.yerin.cafekiosk.api.controller.order.request.OrderCreateServiceRequest;
 import sopt.study.testcode.yerin.cafekiosk.api.service.order.response.OrderResponse;
 import sopt.study.testcode.yerin.cafekiosk.domain.order.Order;
 import sopt.study.testcode.yerin.cafekiosk.domain.order.OrderRepository;
@@ -23,7 +24,7 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
-    public OrderResponse createOrder(OrderCreateRequest request, LocalDateTime registerDateTime) {
+    public OrderResponse createOrder(OrderCreateServiceRequest request, LocalDateTime registerDateTime) {
         List<String> productNumbers = request.getProductNumbers();
         return findProductsBy(registerDateTime, productNumbers);
     }
