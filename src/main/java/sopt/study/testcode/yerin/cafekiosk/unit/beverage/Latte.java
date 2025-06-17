@@ -1,6 +1,6 @@
-package sopt.study.testcode.yerin;
+package sopt.study.testcode.yerin.cafekiosk.unit.beverage;
 
-public class Latte implements Beverage{
+public class Latte implements Beverage {
     @Override
     public String getName() {
         return "라떼";

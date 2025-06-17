@@ -1,6 +1,10 @@
 package sopt.study.testcode.yerin;
 
 import java.time.LocalDateTime;
+import sopt.study.testcode.yerin.cafekiosk.unit.CafeKiosk;
+import sopt.study.testcode.yerin.cafekiosk.unit.beverage.Americano;
+import sopt.study.testcode.yerin.cafekiosk.unit.beverage.Latte;
+import sopt.study.testcode.yerin.cafekiosk.unit.order.Order;
 
 public class CafeKioskRunner {
     public static void main(String[] args) {
@@ -14,6 +18,6 @@ public class CafeKioskRunner {
         int totalPrice = cafeKiosk.calculateTotalPrice();
         System.out.println("총 주문가격 : " + totalPrice);
 
-        Order order = cafeKiosk.createOrder(LocalDateTime.now()); // production code 에서는 이렇게 사용!
+        Order order = cafeKiosk.createOrder(LocalDateTime.now());
     }
 }

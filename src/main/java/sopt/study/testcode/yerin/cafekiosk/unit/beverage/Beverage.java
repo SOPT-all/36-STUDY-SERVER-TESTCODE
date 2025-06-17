@@ -1,4 +1,4 @@
-package sopt.study.testcode.yerin;
+package sopt.study.testcode.yerin.cafekiosk.unit.beverage;
 
 public interface Beverage {
 

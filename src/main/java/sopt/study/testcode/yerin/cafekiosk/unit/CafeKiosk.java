@@ -1,9 +1,12 @@
-package sopt.study.testcode.yerin;
+package sopt.study.testcode.yerin.cafekiosk.unit;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
 import lombok.Getter;
+import sopt.study.testcode.yerin.cafekiosk.unit.beverage.Beverage;
+import sopt.study.testcode.yerin.cafekiosk.unit.order.Order;
 
 @Getter
 public class CafeKiosk {
@@ -35,6 +38,10 @@ public class CafeKiosk {
     }
 
     public int calculateTotalPrice() {
+//        return 0; // 실패 코드 -> RED
+//        return 8500; // 최소한의 코드 -> GREEN
+
+// REFACTOR
         int totalPrice = 0;
         for (Beverage beverage : beverages) {
             totalPrice += beverage.getPrice();
@@ -47,7 +54,7 @@ public class CafeKiosk {
         LocalTime currentTime = currentDateTime.toLocalTime();
 
         if (currentTime.isBefore(SHOP_OPEN_TIME) || currentTime.isAfter(SHOP_CLOSE_TIME)) {
-            throw new IllegalArgumentException("주문 시간이 아닙니다. 관리자에게 문의바람 ㅋㅋ");
+            throw new IllegalArgumentException("주문 시간이 아닙니다.");
         }
 
         return new Order(LocalDateTime.now(), beverages);
@@ -57,7 +64,7 @@ public class CafeKiosk {
         LocalTime currentTime = localDateTime.toLocalTime();
 
         if (currentTime.isBefore(SHOP_OPEN_TIME) || currentTime.isAfter(SHOP_CLOSE_TIME)) {
-            throw new IllegalArgumentException("주문 시간이 아닙니다. 관리자에게 문의바람 ㅋㅋ");
+            throw new IllegalArgumentException("주문 시간이 아닙니다.");
         }
 
         return new Order(LocalDateTime.now(), beverages);

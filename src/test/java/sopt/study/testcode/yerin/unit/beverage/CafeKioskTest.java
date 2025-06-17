@@ -1,10 +1,15 @@
-package sopt.study.testcode.yerin;
+package sopt.study.testcode.yerin.unit.beverage;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
+import sopt.study.testcode.yerin.cafekiosk.unit.order.Order;
+import sopt.study.testcode.yerin.cafekiosk.unit.CafeKiosk;
+import sopt.study.testcode.yerin.cafekiosk.unit.beverage.Americano;
+import sopt.study.testcode.yerin.cafekiosk.unit.beverage.Latte;
 
 class CafeKioskTest {
     @Test //수동테스트
@@ -21,8 +26,7 @@ class CafeKioskTest {
         cafeKiosk.add(new Americano());
 
         assertThat(cafeKiosk.getBeverages()).hasSize(1);
-        // 위와 동일한 코드
-        //assertThat(cafeKiosk.getBeverages().size()).isEqualTo(1);
+
 
         assertThat(cafeKiosk.getBeverages().get(0).getName()).isEqualTo("아메리카노");
     }
@@ -57,7 +61,6 @@ class CafeKioskTest {
         cafeKiosk.add(americano);
         assertThat(cafeKiosk.getBeverages()).hasSize(1);
 
-        //cafeKiosk.remove(new Americano()); -> test fail
         cafeKiosk.remove(americano);
         assertThat(cafeKiosk.getBeverages()).isEmpty();
     }
@@ -104,8 +107,6 @@ class CafeKioskTest {
 
     @Test
     void createOrderOutsideOptnTime() {
-        // 외부에서 받도록 설정.
-        // production code(Runner)에서는 현재 시간을 받도록 하고, test할 때에는 원하는 값을 넣어주는 형태로 변경함
         CafeKiosk cafeKiosk = new CafeKiosk();
         Americano americano = new Americano();
 
@@ -113,6 +114,6 @@ class CafeKioskTest {
 
         assertThatThrownBy(() -> cafeKiosk.createOrder(LocalDateTime.of(2025, 1, 17, 9, 59)))  // 경계값 10시 -1분으로 테스트
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("주문 시간이 아닙니다. 관리자에게 문의바람 ㅋㅋ"); // 테스트 성공 (예외처리가 되었다는 뜻)
+                .hasMessage("주문 시간이 아닙니다."); // 테스트 성공 (예외처리가 되었다는 뜻)
     }
 }
