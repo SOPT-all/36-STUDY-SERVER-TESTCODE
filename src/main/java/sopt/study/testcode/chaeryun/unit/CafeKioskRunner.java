@@ -1,5 +1,6 @@
 package sopt.study.testcode.chaeryun.unit;
 
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import sopt.study.testcode.chaeryun.unit.beverage.Americano;
 import sopt.study.testcode.chaeryun.unit.beverage.Latte;
 import sopt.study.testcode.chaeryun.unit.order.Order;
