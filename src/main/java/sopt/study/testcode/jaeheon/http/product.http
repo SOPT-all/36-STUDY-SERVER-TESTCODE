@@ -1,0 +1,3 @@
+
+### 판매하는 상품 조회
+GET http://localhost:8080/products/selling
