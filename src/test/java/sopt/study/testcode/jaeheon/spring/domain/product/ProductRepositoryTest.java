@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,10 +15,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import static sopt.study.testcode.jaeheon.spring.domain.product.ProductType.*;
 import static sopt.study.testcode.jaeheon.spring.domain.product.SellingStatus.*;
 
-@ActiveProfiles("test") // 프로필을 test로 설정.
-//@SpringBootTest
-@DataJpaTest // 스프링 부트 테스트보다 가벼움. JPA 관련만 사용하므로 빠름.
-class ProductRepositoryTest {
+import sopt.study.testcode.jaeheon.spring.IntegrationTestSupport;
+
+// @ActiveProfiles("test") // 프로필을 test로 설정.
+// // @SpringBootTest
+// @DataJpaTest // 스프링 부트 테스트보다 가벼움. JPA 관련만 사용하므로 빠름.
+@Transactional
+class ProductRepositoryTest extends IntegrationTestSupport {
 
     @Autowired
     private ProductRepository productRepository;

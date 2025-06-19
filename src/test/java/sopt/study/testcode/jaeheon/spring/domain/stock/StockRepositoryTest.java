@@ -11,11 +11,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
+import sopt.study.testcode.jaeheon.spring.IntegrationTestSupport;
 import sopt.study.testcode.jaeheon.spring.domain.product.Product;
 
-@SpringBootTest
-class StockRepositoryTest {
+// @SpringBootTest
+@Transactional
+class StockRepositoryTest extends IntegrationTestSupport {
 
 	@Autowired
 	private StockRepository stockRepository;

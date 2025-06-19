@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
+import sopt.study.testcode.jaeheon.spring.IntegrationTestSupport;
 import sopt.study.testcode.jaeheon.spring.api.controller.product.dto.request.ProductCreateRequest;
 import sopt.study.testcode.jaeheon.spring.api.service.product.request.ProductCreateServiceRequest;
 import sopt.study.testcode.jaeheon.spring.api.service.product.response.ProductResponse;
@@ -22,9 +23,8 @@ import sopt.study.testcode.jaeheon.spring.domain.product.ProductRepository;
 import sopt.study.testcode.jaeheon.spring.domain.product.ProductType;
 import sopt.study.testcode.jaeheon.spring.domain.product.SellingStatus;
 
-@ActiveProfiles("test")
-@SpringBootTest
-class ProductServiceTest {
+
+class ProductServiceTest extends IntegrationTestSupport {
 
 	@Autowired
 	private ProductService productService;

@@ -19,6 +19,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
+import sopt.study.testcode.jaeheon.spring.IntegrationTestSupport;
 import sopt.study.testcode.jaeheon.spring.client.MailSendClient;
 import sopt.study.testcode.jaeheon.spring.domain.OrderProduct.OrderProductRepository;
 import sopt.study.testcode.jaeheon.spring.domain.history.mail.MailSendHistory;
@@ -31,9 +32,7 @@ import sopt.study.testcode.jaeheon.spring.domain.product.ProductRepository;
 import sopt.study.testcode.jaeheon.spring.domain.product.ProductType;
 import sopt.study.testcode.jaeheon.spring.domain.product.SellingStatus;
 
-@SpringBootTest
-@ActiveProfiles("test")
-class OrderStatisticsServiceTest {
+class OrderStatisticsServiceTest extends IntegrationTestSupport {
 
 	@Autowired
 	private OrderStatisticsService orderStatisticsService;
@@ -49,8 +48,7 @@ class OrderStatisticsServiceTest {
 	@Autowired
 	private MailSendHistoryRepository mailSendHistoryRepository;
 
-	@MockitoBean
-	private MailSendClient mailSendClient;
+
 
 	@AfterEach
 	void tearDown(){

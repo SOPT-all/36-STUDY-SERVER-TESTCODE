@@ -32,28 +32,20 @@ import java.util.List;
 public class ProductService {
 
     private final ProductRepository productRepository;
+    private final ProductNumberFactory productNumberFactory;
+
 
     // 여기에 Transactional을 걸어주는게 좋은건가????
     // 동시성 이슈가 있음. 여러 명이 동시에 증가하면 레이스 컨디션 발생
+    @Transactional
     public ProductResponse createProduct(ProductCreateServiceRequest request){
-        String nextProductNumber = createNextProductNumber();
+        String nextProductNumber = productNumberFactory.createNextProductNumber();
 
         Product product = request.toEntity(nextProductNumber);
 
         Product savedProduct = productRepository.save(product);
 
         return ProductResponse.from(savedProduct);
-    }
-
-    private String createNextProductNumber(){
-        String latestProductNumber = productRepository.findLatestProductNumber();
-        if(latestProductNumber == null){
-            return "001";
-        }
-
-        int latestProductNumberInt = Integer.valueOf(latestProductNumber);
-
-        return String.format("%03d", ++latestProductNumberInt);
     }
 
     public List<ProductResponse> getSellingProducts(){

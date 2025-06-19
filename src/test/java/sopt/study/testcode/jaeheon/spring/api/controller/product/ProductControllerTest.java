@@ -23,6 +23,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import sopt.study.testcode.jaeheon.spring.ControllerTestSupport;
 import sopt.study.testcode.jaeheon.spring.api.controller.product.dto.request.ProductCreateRequest;
 import sopt.study.testcode.jaeheon.spring.api.service.product.ProductService;
 import sopt.study.testcode.jaeheon.spring.api.service.product.response.ProductResponse;
@@ -30,17 +31,8 @@ import sopt.study.testcode.jaeheon.spring.domain.product.ProductType;
 import sopt.study.testcode.jaeheon.spring.domain.product.SellingStatus;
 
 
-@WebMvcTest(controllers = ProductController.class) // 테스트하고자 하는 컨트롤러 명시
-class ProductControllerTest {
-
-	@Autowired
-	private MockMvc mockMvc;
-
-	@Autowired
-	private ObjectMapper objectMapper;
-
-	@MockitoBean // 컨테이너에 Mockito로 만든 빈을 넣어주는 역할을 함
-	private ProductService productService;
+// @WebMvcTest(controllers = ProductController.class) // 테스트하고자 하는 컨트롤러 명시
+class ProductControllerTest extends ControllerTestSupport {
 
 	@DisplayName("신규 상품을 등록함.")
 	@Test

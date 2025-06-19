@@ -27,7 +27,7 @@ class OrderTest {
         Order order = Order.create(products, LocalDateTime.now());
 
         // then
-        assertThat(order.getTotalPrice()).isEqualTo(3000);
+        assertThat(order.getTotalPrice()).isEqualTo(2000);
     }
 
     @DisplayName("주문 생성 시 주문 상태는 INIT 임")

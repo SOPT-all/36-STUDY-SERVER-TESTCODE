@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
+import sopt.study.testcode.jaeheon.spring.IntegrationTestSupport;
 import sopt.study.testcode.jaeheon.spring.api.controller.order.request.OrderCreateRequest;
 import sopt.study.testcode.jaeheon.spring.api.controller.order.response.OrderResponse;
 import sopt.study.testcode.jaeheon.spring.api.service.order.reqeust.OrderCreateServiceRequest;
@@ -28,11 +29,8 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static sopt.study.testcode.jaeheon.spring.domain.product.ProductType.*;
 
-// @Transactional
-@ActiveProfiles("test")
-@SpringBootTest
-// @DataJpaTest
-class OrderServiceTest {
+
+class OrderServiceTest extends IntegrationTestSupport {
 
     @Autowired
     private OrderService orderService;

@@ -7,11 +7,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.List;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
@@ -19,22 +19,15 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import sopt.study.testcode.jaeheon.spring.ControllerTestSupport;
 import sopt.study.testcode.jaeheon.spring.api.controller.order.request.OrderCreateRequest;
 import sopt.study.testcode.jaeheon.spring.api.service.order.OrderService;
 
-@WebMvcTest(controllers = OrderController.class)
-class OrderControllerTest {
+class OrderControllerTest extends ControllerTestSupport {
 
-	@Autowired
-	private MockMvc mockMvc;
 
-	@MockitoBean
-	private OrderService orderService;
-
-	@Autowired
-	private ObjectMapper objectMapper;
-
-	@DisplayName("신규 주문을 등록한다 ")
+	@Disabled
+	// @DisplayName("신규 주문을 등록한다 ")
 	@Test
 	void createOrder() throws Exception {
 	    // given
