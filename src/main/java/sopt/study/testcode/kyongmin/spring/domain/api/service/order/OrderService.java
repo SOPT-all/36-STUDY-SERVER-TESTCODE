@@ -14,6 +14,7 @@ import sopt.study.testcode.kyongmin.spring.domain.api.contoller.order.request.Or
 import sopt.study.testcode.kyongmin.spring.domain.api.contoller.order.response.OrderResponse;
 import sopt.study.testcode.kyongmin.spring.domain.order.Order;
 import sopt.study.testcode.kyongmin.spring.domain.order.OrderRepository;
+import sopt.study.testcode.kyongmin.spring.domain.order.OrderStatus;
 import sopt.study.testcode.kyongmin.spring.domain.product.Product;
 import sopt.study.testcode.kyongmin.spring.domain.product.ProductRepository;
 import sopt.study.testcode.kyongmin.spring.domain.product.ProductType;
