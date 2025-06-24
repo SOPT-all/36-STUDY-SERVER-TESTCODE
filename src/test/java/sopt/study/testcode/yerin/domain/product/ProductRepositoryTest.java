@@ -2,11 +2,10 @@ package sopt.study.testcode.yerin.domain.product;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.tuple;
-import static org.assertj.core.api.InstanceOfAssertFactories.type;
-import static sopt.study.testcode.yerin.cafekiosk.domain.product.ProductSellingStatus.HOLD;
-import static sopt.study.testcode.yerin.cafekiosk.domain.product.ProductSellingStatus.SELLING;
-import static sopt.study.testcode.yerin.cafekiosk.domain.product.ProductSellingStatus.STOP_SELLING;
-import static sopt.study.testcode.yerin.cafekiosk.domain.product.ProductType.HANDMADE;
+import static sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductSellingStatus.HOLD;
+import static sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductSellingStatus.SELLING;
+import static sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductSellingStatus.STOP_SELLING;
+import static sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductType.HANDMADE;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -14,11 +13,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.Product;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.Product.ProductBuilder;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.ProductRepository;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.ProductSellingStatus;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.ProductType;
+import sopt.study.testcode.yerin.cafekiosk.spring.domain.product.Product;
+import sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductRepository;
+import sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductSellingStatus;
+import sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductType;
 
 @ActiveProfiles("test") // yml에 있는 test 프로필로 접근(sql 삽입안됨)
 //@SpringBootTest // 테스트할때 서버 띄워서 테스트 가능함

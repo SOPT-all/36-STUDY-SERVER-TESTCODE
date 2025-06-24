@@ -2,10 +2,8 @@ package sopt.study.testcode.yerin.spring.api.service.product;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.tuple;
-import static sopt.study.testcode.yerin.cafekiosk.domain.product.ProductSellingStatus.HOLD;
-import static sopt.study.testcode.yerin.cafekiosk.domain.product.ProductSellingStatus.SELLING;
-import static sopt.study.testcode.yerin.cafekiosk.domain.product.ProductSellingStatus.STOP_SELLING;
-import static sopt.study.testcode.yerin.cafekiosk.domain.product.ProductType.HANDMADE;
+import static sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductSellingStatus.SELLING;
+import static sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductType.HANDMADE;
 
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
@@ -14,13 +12,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import sopt.study.testcode.yerin.cafekiosk.api.controller.product.dto.request.ProductCreateRequest;
-import sopt.study.testcode.yerin.cafekiosk.api.service.product.ProductService;
-import sopt.study.testcode.yerin.cafekiosk.api.service.product.response.ProductResponse;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.Product;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.ProductRepository;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.ProductSellingStatus;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.ProductType;
+import sopt.study.testcode.yerin.cafekiosk.spring.api.controller.product.dto.request.ProductCreateRequest;
+import sopt.study.testcode.yerin.cafekiosk.spring.api.controller.product.dto.request.ProductCreateServiceRequest;
+import sopt.study.testcode.yerin.cafekiosk.spring.api.service.product.ProductService;
+import sopt.study.testcode.yerin.cafekiosk.spring.api.service.product.response.ProductResponse;
+import sopt.study.testcode.yerin.cafekiosk.spring.domain.product.Product;
+import sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductRepository;
+import sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductSellingStatus;
+import sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductType;
 
 @ActiveProfiles("test")
 @SpringBootTest
@@ -43,7 +42,7 @@ public class ProductServiceTest {
         Product product = createProduct("001", HANDMADE, SELLING, "아메리카노", 4000);
         productRepository.save(product);
 
-        ProductCreateRequest request = ProductCreateRequest.builder()
+        ProductCreateServiceRequest request = ProductCreateServiceRequest.builder()
                 .type(HANDMADE)
                 .sellingStatus(SELLING)
                 .name("카푸치노")
@@ -73,7 +72,7 @@ public class ProductServiceTest {
         Product product = createProduct("001", HANDMADE, SELLING, "아메리카노", 4000);
         productRepository.save(product);
 
-        ProductCreateRequest request = ProductCreateRequest.builder()
+        ProductCreateServiceRequest request = ProductCreateServiceRequest.builder()
                 .type(HANDMADE)
                 .sellingStatus(SELLING)
                 .name("카푸치노")

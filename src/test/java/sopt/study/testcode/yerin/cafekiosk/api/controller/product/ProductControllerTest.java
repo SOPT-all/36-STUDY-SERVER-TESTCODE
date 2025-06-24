@@ -1,6 +1,5 @@
 package sopt.study.testcode.yerin.cafekiosk.api.controller.product;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -16,14 +15,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import sopt.study.testcode.yerin.cafekiosk.api.controller.product.dto.request.ProductCreateRequest;
-import sopt.study.testcode.yerin.cafekiosk.api.service.product.ProductService;
-import sopt.study.testcode.yerin.cafekiosk.api.service.product.response.ProductResponse;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.ProductSellingStatus;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.ProductType;
+import sopt.study.testcode.yerin.cafekiosk.spring.api.controller.product.ProductController;
+import sopt.study.testcode.yerin.cafekiosk.spring.api.controller.product.dto.request.ProductCreateRequest;
+import sopt.study.testcode.yerin.cafekiosk.spring.api.service.product.ProductService;
+import sopt.study.testcode.yerin.cafekiosk.spring.api.service.product.response.ProductResponse;
+import sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductSellingStatus;
+import sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductType;
 
 @WebMvcTest(controllers = ProductController.class)
 class ProductControllerTest {
@@ -34,7 +33,7 @@ class ProductControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @MockBean
+    @MockitoBean
     private ProductService productService;
 
     @DisplayName("신규 상품을 등록한다.")

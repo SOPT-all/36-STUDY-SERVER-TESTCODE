@@ -1,10 +1,10 @@
 package sopt.study.testcode.yerin;
 
 import java.time.LocalDateTime;
-import sopt.study.testcode.yerin.cafekiosk.unit.CafeKiosk;
-import sopt.study.testcode.yerin.cafekiosk.unit.beverage.Americano;
-import sopt.study.testcode.yerin.cafekiosk.unit.beverage.Latte;
-import sopt.study.testcode.yerin.cafekiosk.unit.order.Order;
+import sopt.study.testcode.yerin.cafekiosk.spring.unit.CafeKiosk;
+import sopt.study.testcode.yerin.cafekiosk.spring.unit.beverage.Americano;
+import sopt.study.testcode.yerin.cafekiosk.spring.unit.beverage.Latte;
+import sopt.study.testcode.yerin.cafekiosk.spring.unit.order.Order;
 
 public class CafeKioskRunner {
     public static void main(String[] args) {

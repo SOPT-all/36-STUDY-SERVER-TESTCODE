@@ -5,7 +5,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
-import sopt.study.testcode.yerin.cafekiosk.unit.beverage.Americano;
+import sopt.study.testcode.yerin.cafekiosk.spring.unit.beverage.Americano;
 
 class AmericanoTest {
     @Test

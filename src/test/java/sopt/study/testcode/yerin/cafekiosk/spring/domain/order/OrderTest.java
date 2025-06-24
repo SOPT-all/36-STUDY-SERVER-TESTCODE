@@ -1,16 +1,14 @@
 package sopt.study.testcode.yerin.cafekiosk.spring.domain.order;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static sopt.study.testcode.yerin.cafekiosk.domain.product.ProductSellingStatus.SELLING;
+import static sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductSellingStatus.SELLING;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import sopt.study.testcode.yerin.cafekiosk.domain.order.Order;
-import sopt.study.testcode.yerin.cafekiosk.domain.order.OrderStatus;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.Product;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.ProductType;
+import sopt.study.testcode.yerin.cafekiosk.spring.domain.product.Product;
+import sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductType;
 
 class OrderTest {
 

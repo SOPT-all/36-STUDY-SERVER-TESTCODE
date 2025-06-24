@@ -1,6 +1,5 @@
 package sopt.study.testcode.yerin.cafekiosk.api.controller.order;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -14,12 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-import sopt.study.testcode.yerin.cafekiosk.api.controller.order.request.OrderCreateRequest;
-import sopt.study.testcode.yerin.cafekiosk.api.controller.product.dto.request.ProductCreateRequest;
-import sopt.study.testcode.yerin.cafekiosk.api.service.order.OrderService;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.ProductSellingStatus;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.ProductType;
+import sopt.study.testcode.yerin.cafekiosk.spring.api.controller.order.OrderController;
+import sopt.study.testcode.yerin.cafekiosk.spring.api.controller.order.request.OrderCreateRequest;
+import sopt.study.testcode.yerin.cafekiosk.spring.api.service.order.OrderService;
 
 @WebMvcTest(controllers = OrderController.class)
 class OrderControllerTest {
@@ -30,7 +28,7 @@ class OrderControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @MockBean
+    @MockitoBean
     private OrderService orderService;
 
     @DisplayName("신규 주문을 등록한다.")

@@ -2,7 +2,7 @@ package sopt.study.testcode.yerin.spring.api.service.order;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.tuple;
-import static sopt.study.testcode.yerin.cafekiosk.domain.product.ProductSellingStatus.SELLING;
+import static sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductSellingStatus.SELLING;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,13 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
-import sopt.study.testcode.yerin.cafekiosk.api.controller.order.request.OrderCreateRequest;
-import sopt.study.testcode.yerin.cafekiosk.api.service.order.OrderService;
-import sopt.study.testcode.yerin.cafekiosk.api.service.order.response.OrderResponse;
-import sopt.study.testcode.yerin.cafekiosk.domain.order.OrderRepository;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.Product;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.ProductRepository;
-import sopt.study.testcode.yerin.cafekiosk.domain.product.ProductType;
+import sopt.study.testcode.yerin.cafekiosk.spring.api.controller.order.request.OrderCreateRequest;
+import sopt.study.testcode.yerin.cafekiosk.spring.api.controller.order.request.OrderCreateServiceRequest;
+import sopt.study.testcode.yerin.cafekiosk.spring.api.service.order.OrderService;
+import sopt.study.testcode.yerin.cafekiosk.spring.api.service.order.response.OrderResponse;
+import sopt.study.testcode.yerin.cafekiosk.spring.domain.order.OrderRepository;
+import sopt.study.testcode.yerin.cafekiosk.spring.domain.product.Product;
+import sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductRepository;
+import sopt.study.testcode.yerin.cafekiosk.spring.domain.product.ProductType;
 
 @ActiveProfiles("test")
 @SpringBootTest
@@ -55,7 +56,7 @@ public class OrderServiceTest {
         Product product3 = createProduct(ProductType.HANDMADE, "003", 5000);
         productRepository.saveAll(List.of(product1, product2, product3));
 
-        OrderCreateRequest request = OrderCreateRequest.builder()
+        OrderCreateServiceRequest request = OrderCreateServiceRequest.builder()
                 .productNumbers(List.of("001", "002"))
                 .build();
 
@@ -86,7 +87,7 @@ public class OrderServiceTest {
         Product product3 = createProduct(ProductType.HANDMADE, "003", 5000);
         productRepository.saveAll(List.of(product1, product2, product3));
 
-        OrderCreateRequest request = OrderCreateRequest.builder()
+        OrderCreateServiceRequest request = OrderCreateServiceRequest.builder()
                 .productNumbers(List.of("001", "001"))
                 .build();
 
